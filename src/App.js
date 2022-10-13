@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+import Navbar from './Navbar';
+import Data from './Data';
 import './App.css';
+import MenuCard from './MenuCard';
+
+const uniqueList = [
+ ...new Set(Data.map(curElem =>curElem.category)),"All",
+]
 
 function App() {
+  const [menuItems, setMenuItems] = React.useState(Data)
+    
+  function filterItem(category){
+    if ( category==="All"){
+      return setMenuItems(Data)
+    }
+    const updatedList = Data.filter(curElem =>{
+      return (curElem.category === category)
+    })
+    setMenuItems(updatedList)
+  
+  }
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>MENU</h1>
+      <div class="slidebox">
+        <div class="slider"></div>
     </div>
+      <Navbar uniqueList={uniqueList} filterItem={filterItem}/>
+      <MenuCard menuItems={menuItems} />
+      </div>
   );
 }
 

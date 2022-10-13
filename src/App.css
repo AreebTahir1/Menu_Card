@@ -1,38 +1,128 @@
-.App {
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: rgba(0, 255, 255, 0.082);
+}
+.App h1{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.slidebox {
+  width: 140px;
+  height: 3px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: rotateY(0);
+  transition: transform .3s ease-in;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.slider {
+  height: 100%;
+  width: 68px;
+  position: absolute;
+  transform: translate(-34px);
+  background-color: rgba(145, 0, 181, 0.733);
+  border-radius: 2px;
+  animation: initial-loading 2s ease infinite;
+}
+@keyframes initial-loading {
+  0% {
+      transform: translate(-30px);
+
+
+  }
+
+  50% {
+      transform: translate(120px);
+
+  }
+
+  100% {
+      transform: translate(-30px);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-container{
+  text-align: center;
+  margin-top: 5vh;
+    
   }
-  to {
-    transform: rotate(360deg);
+
+  .btn-group {
+    border: none;
+    /* min-width: 6rem; */
+    padding: 1.5rem 3rem;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin: 0;
+    font-size: 17px;
+    box-shadow: inset 0px 0px 0px -15px rebeccapurple;
+    transition: all 300ms ease-out;
+    text-transform: capitalize;
   }
+  .btn-group:last-child {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  .btn-group:first-child {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .btn-group:hover,
+  .btn-group:focus {
+    color: rebeccapurple;
+    box-shadow: inset 0px -20px 0px -15px rebeccapurple;
+  }
+  .btn-group:focus {
+    outline: none;
+  }
+  .btn-group:after {
+    content: "✔️";
+    margin-left: 0.5rem;
+    display: inline-block;
+    color: rebeccapurple;
+    position: absolute;
+    transform: translatey(10px);
+    opacity: 0;
+    transition: all 200ms ease-out;
+  }
+  .btn-group--active:after {
+    opacity: 1;
+    transform: translatey(-2px);
+  }
+.card-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5vw;
+  margin: 5vw 0 2vw 5vw;
+  }
+.card{
+  width:23vw;
+  background-color: rgb(255, 228, 196);
+  border-radius: 10px;
+  padding: 6px;
 }
+.card-img{
+  width: 22vw;
+  height:25vh;
+  border-radius: 5px;
+  
+}
+.btn-order{
+ margin-bottom: 1vh;
+ border: 2px solid white;
+ border-radius: 4px;
+ padding: 3px 12px;
+ background-color: rgb(255, 228, 196);
+ cursor: pointer;
+}
+.btn-order:hover{
+  background-color: rgb(255, 210, 196);
+}
+.btn-order:active{
+  background-color: rgb(255, 196, 196);
+}
+
