@@ -84,7 +84,7 @@ const Data = [
       title: 'Pav Bhaji',
       category: 'Snacks',
       price: 140.00,
-      img: './images/Pav-bhaji.jpg',
+      img: './images/pav-bhaji.jpg',
       desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
     {
